@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Our Website</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#card-container">Card</a></li>
+            <li><a href="#book-container">Book</a></li>
+            <li><a href="#slider">Images</a></li>
+        </ul>
+    </div>
+    <div id="home" class="home">
+        <h1>18.10.24</h1>
+        <h1 style="color: #333;">HAPPY BIRTHDAY</h1>
+        <h1>MY LOVE</h1>
+    </div>
+    <div id="card-container" class="card-container">
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="letter">
+                    <div class="text">
+                        <strong>Gửi em bé lì</strong>
+                        <p>
+                            Thế là năm nay anh lại được đón sinh nhật tuổi mới cùng với bé iu của chui òi. Qua tuổi 20
+                            anh chúc em bé lúc nào cũng vui vẻ, mọi việc thuận lợi và xinh xinh đẹp hơn nữa nhá. Nhờ tui
+                            năm nào cũng chúc nên giờ ngiu tui sắp đi thi hoa hậu đc òi đó.
+
+                            Cảm ơn em vì đã đến bên anh và cho anh động lực để cố gắng mỗi ngày. Cho dù có ra sao đi nữa
+                            anh vẫn muốn đón sinh nhật cùng em bé suốt đời luônnn.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="heart"></div>
+        </div>
+    </div>
+    <script>
+        const envelope = document.querySelector('.envelope-wrapper');
+        envelope.addEventListener('click', () => {
+            envelope.classList.toggle('flap');
+        });
+    </script>
+    <input type="checkbox" id="checkbox-cover">
+    <input type="checkbox" id="checkbox-page1">
+    <input type="checkbox" id="checkbox-page2">
+    <input type="checkbox" id="checkbox-page3">
+    <input type="checkbox" id="checkbox-page4">
+    <input type="checkbox" id="checkbox-page5">
+    <input type="checkbox" id="checkbox-page6">
+
+    <div id="book-container" class="container">
+        <div class="book">
+            <div class="cover">
+                <label for="checkbox-cover">
+                    <i class="fa-solid fa-heart"></i>
+                </label>
+            </div>
+            <div class="page" id="page1">
+                <div class="front-page">
+                    <p> Xin chào em bé ! </br>
+                        Đây là cuốn sách để tụi mình lưu giữ những kỷ niệm đẹp nhất của chúng ta trong năm nay. </br>
+                        Anh mong là mình vẫn có thể hạnh phúc như những khoảnh khắc này mãi nhá </br>
+                    </p>
+                    <img id="inner_img" src="images/1.JPG">
+                    <label class="next" for="checkbox-page1"><i class="fas fa-chevron-right"></i></label>
+                </div>
+                <div class="back-page">
+                    <img src="images/5.JPG">
+                    <label class="prev" for="checkbox-page1"><i class="fas fa-chevron-left"></i></label>
+                </div>
+            </div>
+            <div class="page" id="page2">
+                <div class="front-page">
+                    <h2>TẾT 2024</h2>
+                    <p>Xí xọn đi chụp hình tết để có bộ ảnh cưng ơi là cưng nè. Lúc này gian nắng chụp hìn đúi luôn. Từ
+                        ngày có em bé anh mới biết thế nào là niềm vui khi đi chụp hình dịp lễ ó.</p>
+                    <label class="next" for="checkbox-page2"><i class="fas fa-chevron-right"></i></label>
+                </div>
+                <div class="back-page">
+                    <img src="images/6.PNG">
+                    <label class="prev" for="checkbox-page2"><i class="fas fa-chevron-left"></i></label>
+                </div>
+            </div>
+            <div class="page" id="page3">
+                <div class="front-page">
+                    <h2>Overhead Photobooth</h2>
+                    <p>Còn cái nì là lần đầu đi chụp ảnh photobooth, video tiktok giờ cũng mí ngàn view gòi tại mẫu nam
+                        đẹp trai quá "><"< /p>
+                            <label class="next" for="checkbox-page3"><i class="fas fa-chevron-right"></i></label>
+                </div>
+                <div class="back-page">
+                    <img src="images/7.JPG">
+                    <label class="prev" for="checkbox-page3"><i class="fas fa-chevron-left"></i></label>
+                </div>
+            </div>
+            <div class="page" id="page4">
+                <div class="front-page">
+                    <h2>Danang Trip</h2>
+                    <p>Yay tụi mình đã hoàn thành được mục tiêu của năm nay đó là đi du lịch Đà Nẵng. Năm sau anh hứa sẽ
+                        bao bb đi Nha Trang lại nhá!</p>
+                    <!-- <label class="next" for="checkbox-page3"><i class="fas fa-chevron-right"></i></label> -->
+                </div>
+                <div class="back-page">
+                    <img src="images/7.JPG">
+                    <label class="prev" for="checkbox-page3"><i class="fas fa-chevron-left"></i></label>
+                </div>
+            </div>
+            <div class="back-cover"></div>
+        </div>
+    </div>
+    <div id="slider" class="slider" reverse="true">
+        <div class="list">
+            <div class="item" style="--position: 1"><img src="images/1.JPG" alt=""></div>
+            <div class="item" style="--position: 2"><img src="images/2.jpg" alt=""></div>
+            <div class="item" style="--position: 3"><img src="images/3.PNG" alt=""></div>
+            <div class="item" style="--position: 4"><img src="images/4.JPG" alt=""></div>
+            <div class="item" style="--position: 5"><img src="images/5.JPG" alt=""></div>
+            <div class="item" style="--position: 6"><img src="images/8.JPG" alt=""></div>
+            <div class="item" style="--position: 7"><img src="images/9.PNG" alt=""></div>
+            <div class="item" style="--position: 8"><img src="images/10.JPG" alt=""></div>
+            <div class="item" style="--position: 9"><img src="images/11.JPG" alt=""></div>
+        </div>
+    </div>
+    <div class="bottom"></div>
+    <script type="text/javascript">
+        const cursor = document.querySelector('.cursor');
+        var timeout;
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.pageX + 'px';
+            cursor.style.top = e.pageY + 'px';
+            cursor.style.display = 'block';
+
+            function mouseStop() {
+                cursor.style.display = 'none';
+            }
+            timeout = setTimeout(mouseStop, 1000);
+        });
+        document.addEventListener('mouseout', () => {
+            cursor.style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>

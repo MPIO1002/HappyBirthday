@@ -1,0 +1,441 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
+
+:root {
+	--primary: #fff;
+	--bg-color: rgb(5, 53, 61);
+	--bg-envelope-color: #f5edd1;
+	--envelope-tab: #ecdeb8;
+	--envelope-cover: #e6cfa7;
+	--shadow-color: rgba(0, 0, 0, 0.2);
+	--txt-color: #444;
+	--heart-color: rgb(255, 29, 115);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Afacad Flux', cursive;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: "Poppin", sans-serif;
+	background-color: #f1f1f1;
+	height: 100vh;
+	background-image: radial-gradient(rgb(255, 131, 158) 10%, rgb(255, 209, 227) 30%, rgb(255, 255, 255) 60%);
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.book {
+	width: 350px;
+	height: 450px;
+	position: relative;
+	transition-duration: 1s;
+	perspective: 1500;
+}
+
+input {
+	display: none;
+}
+
+.cover,
+.back-cover {
+	background-color: #ffb1b8;
+	width: 100%;
+	height: 100%;
+	border-radius: 0 15px 15px 0;
+	box-shadow: 0 0 5px rgb(168, 168, 168);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform-origin: center left;
+	position: relative;
+}
+
+.cover {
+	position: absolute;
+	z-index: 4;
+	transition: transform 1s;
+}
+
+.cover .fa-heart {
+	color: #fffffff6;
+	font-size: 150px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.cover label {
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+
+.back-cover {
+	position: relative;
+	z-index: -1;
+}
+
+.page {
+	position: absolute;
+	background-color: white;
+	width: 330px;
+	height: 430px;
+	border-radius: 0 15px 15px 0;
+	margin-top: 10px;
+	transform-origin: left;
+	transform-style: preserve-3d;
+	transform: rotateY(0deg);
+	transition-duration: 1.5s;
+}
+
+.page img {
+	width: 300px;
+	height: 300px;
+	border-radius: 15px;
+	object-fit: cover;
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.front-page {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	box-sizing: border-box;
+	padding: 1rem;
+}
+
+.back-page {
+	transform: rotateY(180deg);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	z-index: 99;
+}
+
+.next,
+.prev {
+	position: absolute;
+	bottom: 1em;
+	cursor: pointer;
+}
+
+.next {
+	right: 1em;
+}
+
+.prev {
+	left: 1em;
+}
+
+#page1 {
+	z-index: 3;
+}
+
+#page2 {
+	z-index: 2;
+}
+
+#page3 {
+	z-index: 1;
+}
+
+#checkbox-cover:checked~.container .book {
+	transform: translateX(200px);
+}
+
+#checkbox-cover:checked~.container .book .cover {
+	transition: transform 1.5s, z-index 0.5s 0.5s;
+	transform: rotateY(-180deg);
+	z-index: 1;
+}
+
+#checkbox-cover:checked~.container .book .page {
+	box-shadow: 0 0 3px rgb(228, 228, 228);
+}
+
+#checkbox-page1:checked~.container .book #page1 {
+	transform: rotateY(-180deg);
+	z-index: 2;
+}
+
+#checkbox-page2:checked~.container .book #page2 {
+	transform: rotateY(-180deg);
+	z-index: 3;
+}
+
+#checkbox-page3:checked~.container .book #page3 {
+	transform: rotateY(-180deg);
+	z-index: 4;
+}
+
+#inner_img {
+	border-radius: 15px;
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.navbar {
+	background-color: #ffffffd2;
+	overflow: hidden;
+	top: 0;
+	width: 100%;
+	position: fixed;
+	z-index: 1000;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+}
+
+.navbar ul li {
+	padding: 14px 20px;
+	cursor: pointer;
+	transform: ease 0.5s;
+	font-size: 20px;
+}
+
+.navbar ul li a {
+	color: rgb(0, 0, 0);
+	text-decoration: none;
+	display: block;
+	text-align: center;
+}
+
+.navbar ul li:hover {
+	color: #ffb9b9;
+}
+
+.home {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	height: 100vh;
+	margin-top: 0px;
+	gap: 0px;
+}
+
+.home h1 {
+	font-size: 4rem;
+	line-height: 1.5;
+}
+
+h1 {
+	font-size: 4rem;
+	/* Kích thước chữ */
+	color: transparent;
+	/* Màu chữ trong suốt */
+	-webkit-text-stroke: 2px #333;
+	/* Viền chữ cho các trình duyệt khác */
+	text-align: center;
+	/* Căn giữa chữ */
+	margin: 20px 0;
+	/* Khoảng cách trên và dưới */
+}
+
+.card-container {
+	height: 100vh;
+	display: grid;
+	place-items: center;
+	position: relative;
+}
+
+.card-container>.envelope-wrapper {
+	background: var(--bg-envelope-color);
+	box-shadow: 0 0 40px var(--shadow-color);
+}
+
+.envelope-wrapper>.envelope {
+	position: relative;
+	width: 300px;
+	height: 250px;
+}
+
+.envelope-wrapper>.envelope::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	z-index: 2;
+	border-top: 130px solid var(--envelope-tab);
+	border-right: 150px solid transparent;
+	border-left: 150px solid transparent;
+	transform-origin: top;
+	transition: all 0.5s ease-in-out 0.7s;
+}
+
+.envelope-wrapper>.envelope::after {
+	content: "";
+	position: absolute;
+	z-index: 2;
+	width: 0px;
+	height: 0px;
+	border-top: 130px solid transparent;
+	border-right: 150px solid var(--envelope-cover);
+	border-bottom: 125px solid var(--envelope-cover);
+	border-left: 150px solid var(--envelope-cover);
+}
+
+.envelope>.letter {
+	position: absolute;
+	right: 20%;
+	bottom: 0;
+	width: 54%;
+	height: 80%;
+	background: var(--primary);
+	text-align: center;
+	transition: all 1s ease-in-out;
+	box-shadow: 0 0 5px var(--shadow-color);
+	padding: 20px 10px;
+}
+
+.envelope>.letter>.text {
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	color: var(--txt-color);
+	text-align: left;
+	font-size: 10px;
+}
+
+.heart {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 15px;
+	height: 15px;
+	background: var(--heart-color);
+	z-index: 4;
+	transform: translate(-50%, -20%) rotate(45deg);
+	transition: transform 0.5s ease-in-out 1s;
+	box-shadow: 0 1px 6px var(--shadow-color);
+	cursor: pointer;
+}
+
+.heart:before,
+.heart:after {
+	content: "";
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	background-color: var(--heart-color);
+	border-radius: 50%;
+}
+
+.heart:before {
+	top: -7.5px;
+}
+
+.heart:after {
+	right: 7.5px;
+}
+
+.flap>.envelope:before {
+	transform: rotateX(180deg);
+	z-index: 0;
+}
+
+.flap>.envelope>.letter {
+	bottom: 250px;
+	transform: scale(1.5);
+	transition-delay: 1s;
+}
+
+.flap>.heart {
+	transform: rotate(90deg);
+	transition-delay: 0.4s;
+}
+
+.slider {
+	margin-top: 200px;
+	width: 100%;
+	height: var(--height);
+	overflow: hidden;
+	mask-image: linear-gradient(to right,
+			transparent,
+			#000 10% 90%,
+			transparent);
+}
+.bottom {
+    content: "";
+    display: block;
+    height: 150px; 
+}
+.slider .list {
+	display: flex;
+	width: 100%;
+	min-width: calc(var(--width) * var(--quantity));
+	position: relative;
+	object-fit: cover;
+}
+
+.slider .list .item {
+	width: var(--width);
+	height: var(--height);
+	position: absolute;
+	left: 100%;
+	animation: autoRun 30s linear infinite;
+	transition: filter 0.5s;
+	animation-delay: calc((30s / var(--quantity)) * (var(--position) - 1) - 30s) !important;
+}
+
+.slider .list .item img {
+	width: 100%;
+}
+
+@keyframes autoRun {
+	from {
+		left: 100%;
+	}
+
+	to {
+		left: calc(var(--width) * -1);
+	}
+}
+
+.slider:hover .item {
+	animation-play-state: paused !important;
+}
+
+.slider[reverse="true"] .item {
+	animation: reversePlay 30s linear infinite;
+}
+
+.slider {
+	--width: 300px;
+	--height: 300px;
+	--quantity: 9;
+
+}
+
+@keyframes reversePlay {
+	from {
+		left: calc(var(--width) * -1);
+	}
+
+	to {
+		left: 100%;
+	}
+}
